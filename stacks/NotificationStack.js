@@ -3,22 +3,28 @@ import {createStackNavigator} from 'react-navigation';
 
 import StackConfig from './StackConfig';
 import ChatScreen from '../screens/ChatScreen';
-import ChatIcon from '../assets/icons/chat.png';
-import FooterNavigationIcon from '../components/FooterNavigationIcon';
+import chatIcon from '../assets/icons/notification.png';
+import NavbarIcon from '../components/navbar/NavbarIcon';
 
 const ChatStack = createStackNavigator(
     {
-        Chat: ChatScreen,
+        Chat: {
+            screen: screenProps => <ChatScreen screenProps={screenProps.screenProps}/>,
+            navigationOptions: () => ({
+                header: null,
+            })
+        },
     },
     StackConfig
-);
+    )
+;
 
 ChatStack.navigationOptions = {
     tabBarLabel: ' ',
     tabBarIcon: ({focused}) => (
-        <FooterNavigationIcon
+        <NavbarIcon
             focused={focused}
-            image={ChatIcon}
+            image={chatIcon}
             mainIcon={false}
         />
     ),
