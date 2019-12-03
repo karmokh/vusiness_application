@@ -3,13 +3,13 @@ import {createBottomTabNavigator} from 'react-navigation';
 
 import HomeStack from '../stacks/HomeStack';
 import AboutStack from '../stacks/AboutStack';
-import ChatStack from '../stacks/ChatStack';
+import NotificationStack from '../stacks/NotificationStack';
 import SettingsStack from '../stacks/SettingsStack';
 import ProfileStack from '../stacks/ProfileStack';
 
 const TabNavigator = createBottomTabNavigator({
     AboutStack,
-    ChatStack,
+    NotificationStack,
     HomeStack,
     SettingsStack,
     ProfileStack,

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Vusiness",
-    "slug": "Vusines",
+    "slug": "Vusiness",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -25,6 +25,16 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "ir.vistaapp.vusiness",
+      "permissions": [
+        "com.android.launcher.permission.INSTALL_SHORTCUT",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     }
   }
 }

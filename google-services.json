@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "711865112074",
+    "firebase_url": "https://vusiness-94a54.firebaseio.com",
+    "project_id": "vusiness-94a54",
+    "storage_bucket": "vusiness-94a54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711865112074:android:67321589a0019420b8b1f3",
+        "android_client_info": {
+          "package_name": "ir.vistaapp.vusiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711865112074-lneatdliedsc41s5gp7ihbnnnkt2uu0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZtsZbq141K1OPJ1cx24N6Q64hkGMkyqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711865112074-lneatdliedsc41s5gp7ihbnnnkt2uu0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

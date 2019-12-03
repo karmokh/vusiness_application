@@ -1,8 +1,9 @@
 import React from 'react';
 import {Text} from 'react-native';
+import c from '../../constants/Carima';
 
-export default function IranSans(props) {
+export default function DefaultText(props) {
     return (
-        <Text {...props} style={[props.style, {fontFamily: 'iran-sans', textAlign: 'right'}]}/>
+        <Text {...props} style={[props.style, c.ta_right, {fontFamily: 'iran-sans'}]}/>
     );
 }

@@ -3,12 +3,17 @@ import {createStackNavigator} from 'react-navigation';
 
 import StackConfig from './StackConfig';
 import SettingsScreen from '../screens/SettingsScreen';
-import SettingsIcon from '../assets/icons/settings.png';
-import FooterNavigationIcon from '../components/FooterNavigationIcon';
+import NavbarIcon from '../components/navbar/NavbarIcon';
+import settingsIcon from '../assets/icons/settings.png';
 
 const SettingsStack = createStackNavigator(
     {
-        Settings: SettingsScreen,
+        Settings: {
+            screen: screenProps => <SettingsScreen screenProps={screenProps.screenProps}/>,
+            navigationOptions: () => ({
+                header: null,
+            })
+        },
     },
     StackConfig
 );
@@ -16,10 +21,11 @@ const SettingsStack = createStackNavigator(
 SettingsStack.navigationOptions = {
     tabBarLabel: ' ',
     tabBarIcon: ({focused}) => (
-        <FooterNavigationIcon
+        <NavbarIcon
             focused={focused}
-            image={SettingsIcon}
+            image={settingsIcon}
             mainIcon={false}
+            have_badge={false}
         />
     ),
 };

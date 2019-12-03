@@ -5,7 +5,7 @@ import Styles from "../constants/Styles";
 export default function ProfileScreen() {
     return (
         <View style={Styles.CenterView}>
-            <Text>پروفایل</Text>
+            <Text>تنظیمات</Text>
         </View>
     );
 }

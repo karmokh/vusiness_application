@@ -2,14 +2,15 @@ import React from 'react';
 import {createStackNavigator} from 'react-navigation';
 
 import StackConfig from './StackConfig';
-import ChatScreen from '../screens/ChatScreen';
+import NotificationScreen from '../screens/NotificationScreen';
 import chatIcon from '../assets/icons/notification.png';
 import NavbarIcon from '../components/navbar/NavbarIcon';
+import Website from "../pages/website/Website";
 
-const ChatStack = createStackNavigator(
+const NotificationStack = createStackNavigator(
     {
-        Chat: {
-            screen: screenProps => <ChatScreen screenProps={screenProps.screenProps}/>,
+        Notification: {
+            screen: screenProps => <NotificationScreen screenProps={screenProps.screenProps} navigation={screenProps.navigation}/>,
             navigationOptions: () => ({
                 header: null,
             })
@@ -19,17 +20,18 @@ const ChatStack = createStackNavigator(
     )
 ;
 
-ChatStack.navigationOptions = {
+NotificationStack.navigationOptions =  {
     tabBarLabel: ' ',
     tabBarIcon: ({focused}) => (
         <NavbarIcon
             focused={focused}
             image={chatIcon}
             mainIcon={false}
+            have_badge={true}
         />
     ),
 };
 
-ChatStack.path = '';
+NotificationStack.path = '';
 
-export default ChatStack;
+export default NotificationStack;

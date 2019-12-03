@@ -3,12 +3,19 @@ import {createStackNavigator} from 'react-navigation';
 
 import StackConfig from './StackConfig';
 import ProfileScreen from '../screens/ProfileScreen';
-import ProfileIcon from '../assets/icons/profile.png';
-import FooterNavigationIcon from '../components/FooterNavigationIcon';
+import NavbarIcon from '../components/navbar/NavbarIcon';
+import profileIcon from '../assets/icons/profile.png';
+import ComingSoon from "../pages/public/ComingSoon";
 
 const ProfileStack = createStackNavigator(
     {
-        Profile: ProfileScreen,
+        Profile: {
+            // screen: screenProps => <ProfileScreen screenProps={screenProps.screenProps}/>,
+            screen: ComingSoon,
+            navigationOptions: () => ({
+                header: null,
+            })
+        },
     },
     StackConfig
 );
@@ -16,10 +23,11 @@ const ProfileStack = createStackNavigator(
 ProfileStack.navigationOptions = {
     tabBarLabel: ' ',
     tabBarIcon: ({focused}) => (
-        <FooterNavigationIcon
+        <NavbarIcon
             focused={focused}
-            image={ProfileIcon}
+            image={profileIcon}
             mainIcon={false}
+            have_badge={false}
         />
     ),
 };

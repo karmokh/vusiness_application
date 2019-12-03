@@ -1,7 +1,9 @@
-import {StyleSheet} from 'react-native';
-import Colors from '../constants/Colors';
+import {Dimensions, StyleSheet} from 'react-native';
+import {carima} from './Carima';
 
-const Styles = StyleSheet.create({
+var {height, width} = Dimensions.get('window');
+
+const styles = StyleSheet.create({
     CenterView: {
         flex: 1,
         justifyContent: 'center',
@@ -33,6 +35,33 @@ const Styles = StyleSheet.create({
         shadowRadius: 6.27,
         elevation: 10,
     },
+    header: {
+        marginTop: 40,
+        height: 60
+    },
+    header_title: {
+        textAlign: 'center',
+        paddingBottom: 10,
+        fontSize: 20,
+        color: '#555',
+    },
+    Text: {
+        fontFamily: 'iran-sans',
+        textAlign: 'right',
+        lineHeight: 30
+    },
+    container_image: {
+        borderRadius: 10,
+        width: width - 50,
+        height: 160
+    },
+    mt: {
+        marginTop: 30
+    },
+    h1: {
+        fontSize: 30
+    }
+
 });
 
-export default Styles;
+export default styles;
