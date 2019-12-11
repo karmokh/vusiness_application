@@ -42,9 +42,9 @@ class NotificationScreen extends Component {
                         <Button color={notification.seen ? colors.blue : colors.dark} onPress={() => {
                             if (notification.type_id) {
                                 if (notification.type_id == 1) {
-                                    this.props.navigation.navigate("Website", {id: notification.type_id})
+                                    this.props.navigation.navigate("Website", {id: notification.type_data})
                                 } else if (notification.type_id == 2) {
-                                    this.props.navigation.navigate("Website", {id: notification.type_id})
+                                    this.props.navigation.navigate("Seo", {id: notification.type_data})
                                 }
                             }
                         }}><Text textCenter>{notification.message}</Text>

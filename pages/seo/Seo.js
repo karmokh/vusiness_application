@@ -120,10 +120,8 @@ class Seo extends Component {
                             </ScrollView>
                         </View>
                         <View flex key={3}>
-                            <ScrollView>
-                                <SeoChat user_id={this.props.screenProps.user_id} token={this.props.screenProps.token}
-                                         project_id={this.state.id}/>
-                            </ScrollView>
+                            <SeoChat user_id={this.props.screenProps.user_id} token={this.props.screenProps.token}
+                                     project_id={this.state.id}/>
                         </View>
                         <View flex key={2}>
                             <ScrollView>

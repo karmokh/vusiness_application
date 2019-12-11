@@ -26,7 +26,6 @@ class App extends Component {
             noInternet: false,
             isLoadingComplete: false,
             setLoadingComplete: false,
-            enterApp: true,
             loginSelected: true,
             isLogged: false,
             username: null,
@@ -78,6 +77,7 @@ class App extends Component {
         ])
 
         this.setState({
+            setLoadingComplete: true,
             user_id: await AsyncStorage.getItem('user_id'),
             token: await AsyncStorage.getItem('token'),
         })
@@ -112,9 +112,9 @@ class App extends Component {
         );
     }
 
-    // async componentDidMount() {
-    //     await registerForPushNotificationsAsync()
-    // }
+    async componentDidMount() {
+        await registerForPushNotificationsAsync()
+    }
 
     async logout() {
         this.setState({
@@ -163,8 +163,7 @@ class App extends Component {
     }
 
     render() {
-
-        if (!this.state.isLoadingComplete) {
+        if (!this.state.setLoadingComplete) {
             return (
                 <AppLoading
                     startAsync={
@@ -175,30 +174,24 @@ class App extends Component {
                     }}
                     onFinish={() => {
                         this.setState({
-                            // isLoadingComplete: true,
+                            isLoadingComplete: true,
                             setLoadingComplete: true
                         })
                     }}
                 />
             );
-        } else if (!this.state.enterApp) {
+        } else if (!this.state.isLoadingComplete) {
             return (
                 <View flex center>
                     <NoInternetModal noInternet={this.state.noInternet}/>
                     <Text textCenter size={18} color={colors.dark}>به اپلیکیشن شرکت ویستا خوش آمدید</Text>
                     <Image mt={80} source={start} w={-40} h={250}/>
-                    <Button w={230} h={50} mt={30} bg={colors.blue} center bRadius={40} onPress={() => {
-                        this.setState({
-                            enterApp: true
-                        })
-                    }}>
-                        <Text center color={colors.white}>ورود به اپلیکیشن</Text>
-                    </Button>
+                    <Text mt={50} center color={colors.gray}>در حال دریافت اطلاعات</Text>
                 </View>
             )
         } else if (!this.state.isLogged) {
             return (
-                <KeyboardAvoidingView style={{flex: 1}}>
+                <KeyboardAvoidingView style={{flex: 1}} behavior={"padding"} enabled>
                     <NoInternetModal noInternet={this.state.noInternet}/>
                     <View style={styles.login}>
                         <View row center>
@@ -272,11 +265,13 @@ class App extends Component {
                             </Fragment>
                         ) : (
                             <View mv={50}>
-                                <Text color={colors.gray} h5 textCenter>جهت ایجاد حساب کاربری در اپلیکیشن شرکت ویستا، با
+                                <Text color={colors.gray} h5 textCenter>جهت ایجاد حساب کاربری در اپلیکیشن شرکت
+                                    ویستا، با
                                     کارشناسان شرکت تماس حاصل نمایید</Text>
-                                <Button row w={250} h={50} mt={80} bg={colors.blue} center bRadius={40} onPress={() => {
-                                    Linking.openURL("tel:02188551470")
-                                }}>
+                                <Button row w={250} h={50} mt={80} bg={colors.blue} center bRadius={40}
+                                        onPress={() => {
+                                            Linking.openURL("tel:02188551470")
+                                        }}>
                                     <Text color={colors.white} h5 mr={8}>تماس با کارشناس</Text>
                                     <Feather flex={1} name="phone-call" size={28} color={colors.white}/>
                                 </Button>
